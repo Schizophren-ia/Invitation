@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101e30">
+  <meta name="description" content="A little Christmas miracle. You're invited to celebrate Aristia's first birthday, 18:00 on 20 December 2026 at Cocotte, SILA Urban Living.">
+  <title>Aristia's 1st Birthday · A Christmas Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="world" id="world">
+    <div class="landscape" aria-hidden="true"></div><div class="shade" aria-hidden="true"></div>
+    <header class="header">
+      <a class="wordmark" href="./" aria-label="Aristia, trang đầu">aristia<span>ONE WONDERFUL YEAR</span></a>
+      <button class="sound pill" id="sound" aria-pressed="false"><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="sound-label">Bật nhạc</span></button>
+    </header>
+    <section class="intro" aria-labelledby="headline">
+      <p class="eyebrow"><span></span> A VERY SPECIAL DELIVERY <span></span></p>
+      <h1 id="headline">A little Christmas<br><em>miracle.</em></h1>
+      <p class="subtitle">A season of wonder. A year of love.</p>
+    </section>
+    <button class="sleigh-flight" id="sleigh" aria-label="Chạm xe tuần lộc để nhận thiệp mời">
+      <img src="assets/sleigh.svg" alt="" class="sleigh-art" width="620" height="210">
+      <span class="sleigh-glitter" aria-hidden="true">✧ · ˚ · ✦ · ˚</span>
+      <span class="gift-pin" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10h16v4H4zM6 14v7h12v-7M12 10v11M12 10H8.5A3.5 3.5 0 1 1 12 6.5V10Zm0 0h3.5A3.5 3.5 0 1 0 12 6.5V10Z"/></svg></span>
+    </button>
+    <section class="invitation-cue" aria-label="Nhận thiệp mời">
+      <span class="tiny-star" aria-hidden="true">✧</span>
+      <p>Một món quà nhỏ, dành riêng cho bạn</p>
+      <button class="receive" id="receive">Chạm xe tuần lộc để nhận thiệp <span aria-hidden="true">↗</span></button>
+      <span class="cue-note">A little magic is just a tap away</span>
+    </section>
+    <footer class="footer"><span>ARISTIA’S 1ST BIRTHDAY</span><span class="footer-date">20 <i>·</i> 12 <i>·</i> 2026</span><span class="footer-place">WITH LOVE, UNDER THE CHRISTMAS MOON</span></footer>
+    <div class="steps" aria-hidden="true"><i class="active"></i><i></i><i></i></div>
+  </main>
+  <canvas id="snow" aria-hidden="true"></canvas>
+  <div class="overlay" id="overlay" hidden>
+    <section class="experience" role="dialog" aria-modal="true" aria-label="Món quà thiệp mời của Aristia" tabindex="-1">
+      <button class="sound pill dialog-sound" id="sound-dialog" aria-pressed="false">Bật nhạc</button>
+      <button class="close icon-button" id="close" aria-label="Đóng thiệp">×</button>
+      <div class="envelope-scene" id="envelope-scene">
+        <p class="eyebrow envelope-heading">A LITTLE MAGIC, SEALED WITH LOVE</p>
+        <div class="envelope" id="envelope">
+          <div class="envelope-back"></div>
+          <div class="letter-preview"><span>You're invited</span><span>Aristia</span><small>A FIRST BIRTHDAY CELEBRATION</small></div>
+          <div class="flap"></div><div class="envelope-front"></div>
+          <div class="envelope-inscription">For you, with love</div>
+          <button class="seal" id="seal" aria-label="Nhấn dấu sáp bông tuyết để mở phong bì"><span class="seal-piece p1"></span><span class="seal-piece p2"></span><span class="seal-piece p3"></span><span class="seal-piece p4"></span><span class="snowflake" aria-hidden="true">❄</span></button>
+        </div>
+        <div class="envelope-instruction"><p>Một lời mời từ trái tim</p><span>Chạm vào dấu sáp để mở thiệp</span><span class="tap-indicator" aria-hidden="true">↓</span></div>
+      </div>
+      <div class="card-scene" id="card-scene" hidden>
+        <article class="invitation" tabindex="-1" aria-labelledby="card-title">
+          <div class="card-border" aria-hidden="true"></div>
+          <span class="card-snowflake" aria-hidden="true">❄</span>
+          <p class="script invited">You're invited</p>
+          <p class="card-kicker">TO CELEBRATE A LITTLE CHRISTMAS MIRACLE</p>
+          <h2 id="card-title">Aristia’s</h2>
+          <p class="birthday"><span>1</span><sup>st</sup> birthday</p>
+          <div class="ornament" aria-hidden="true"><span></span>✧<span></span></div>
+          <p class="card-message">One year of tiny hands &amp; endless love.<br>Join us for an evening full of wonder.</p>
+          <div class="date-block"><p>SUNDAY, 20 DECEMBER 2026</p><strong>18:00</strong><span>HỒ CHÍ MINH CITY · GMT+7</span></div>
+          <div class="venue"><p>COCOTTE RESTAURANT</p><span>SILA Urban Living</span><address>21 Ngô Thời Nhiệm, phường Xuân Hòa<br>Hồ Chí Minh City</address></div>
+          <p class="script signoff">Your presence is our sweetest gift.</p>
+          <div class="card-actions"><button id="calendar">Lưu vào lịch <span aria-hidden="true">＋</span></button><a href="https://www.google.com/maps/search/?api=1&query=Cocotte+SILA+Urban+Living+21+Ngo+Thoi+Nhiem+Ho+Chi+Minh" target="_blank" rel="noopener noreferrer">Xem bản đồ <span aria-hidden="true">↗</span></a></div>
+          <p class="card-bottom">WITH LOVE, ARISTIA &amp; FAMILY</p>
+        </article>
+        <button class="replay" id="replay"><span aria-hidden="true">↻</span> Xem lại phép màu</button>
+      </div>
+    </section>
+  </div>
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript">You're invited to Aristia's 1st birthday · 18:00, 20.12.2026 · Cocotte Restaurant, SILA Urban Living, 21 Ngô Thời Nhiệm, Xuân Hòa, HCM City. Bật JavaScript để mở thiệp tương tác.</div></noscript>
+  <script src="app.js"></script>
+</body>
+</html>
