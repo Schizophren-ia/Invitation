@@ -8,3 +8,18 @@
 @media(max-width:700px){.dialog-sound{top:22px;left:20px}}
 
 #snow{z-index:25}
+
+/* Santa's route crosses the entire moonlit sky. */
+.sleigh-flight{top:33%;left:0;width:clamp(360px,38vw,600px);height:auto;aspect-ratio:2.3;animation:cross-sky 16s linear infinite;filter:drop-shadow(0 3px 5px #050b15b3);}
+.sleigh-art{object-fit:contain;filter:brightness(.72) contrast(1.1)}
+.sleigh-flight:hover .sleigh-art{filter:brightness(.9) contrast(1.1)}
+.sleigh-glitter{opacity:.65}.gift-pin{left:21%;bottom:20%}
+.receive-hint{display:inline-block;margin:0!important;border:1px solid #f7e9cc9c;border-radius:40px;padding:15px 22px;font:500 12px var(--sans)!important;letter-spacing:.2px;background:#17283b99;color:#fff8e9;backdrop-filter:blur(6px)}
+.receive-hint span{margin-left:12px}
+.falling-letter{position:fixed;z-index:12;width:68px;height:47px;background:linear-gradient(145deg,#832d3d,#4d1322);border:1px solid #ba8d59;box-shadow:0 6px 20px #0009;display:grid;place-items:center;color:#e1bd7b;animation:letter-fall 1.5s cubic-bezier(.35,.05,.5,1) forwards;pointer-events:none}
+.falling-letter:before{content:'';position:absolute;inset:0;background:#a4444c;clip-path:polygon(0 0,100% 0,50% 55%)}.falling-letter span{z-index:1;font-size:17px;background:#b99459;border-radius:50%;width:23px;height:23px;text-align:center;color:#6b382e}
+@keyframes cross-sky{0%{transform:translateX(-110%) translateY(8px)}100%{transform:translateX(100vw) translateY(-16px)}}
+@keyframes letter-fall{0%{opacity:1;transform:translate(0,0) rotate(-12deg) scale(.5)}75%{opacity:1;transform:translate(-20px,32vh) rotate(18deg) scale(1)}100%{opacity:0;transform:translate(-25px,45vh) rotate(24deg) scale(1.2)}}
+.world.delivered .sleigh-flight{animation-play-state:paused;opacity:1}
+@media(max-width:700px){.sleigh-flight{top:36%;left:0;width:330px;height:auto;animation:cross-sky 12s linear infinite}.gift-pin{left:20%}.receive-hint{font-size:11px!important}}
+@media(prefers-reduced-motion:reduce){.sleigh-flight{left:50%;top:36%;transform:translateX(-50%);animation:none!important}.falling-letter{animation-duration:.01ms}}

@@ -7,14 +7,21 @@ function announce(message) { $('status').textContent = message; $('status').clas
 function setStep(n) { document.querySelectorAll('.steps i').forEach((el,i) => el.classList.toggle('active',i===n)); }
 function receive(event) {
   if (stage !== 'intro') return;
-  lastTrigger = event.currentTarget; stage = 'envelope';
-  $('world').classList.add('delivered'); overlay.hidden = false;
-  $('world').inert = true; document.body.style.overflow = 'hidden';
-  $('seal').disabled = true;
-  setStep(1); setTimeout(() => { if (stage === 'envelope') { $('seal').disabled = false; $('seal').focus(); } }, motion.matches ? 30 : 1500);
+  lastTrigger = event.currentTarget; stage = 'dropping';
+  const sleigh = $('sleigh'), rect = sleigh.getBoundingClientRect();
+  const letter = document.createElement('div'); letter.className = 'falling-letter'; letter.setAttribute('aria-hidden','true');
+  letter.style.left = `${rect.left + rect.width * .25}px`; letter.style.top = `${rect.top + rect.height * .65}px`;
+  letter.innerHTML = '<span>❄</span>'; document.body.append(letter);
+  $('world').classList.add('delivered');
+  openingTimer = setTimeout(() => {
+    letter.remove(); stage = 'envelope'; overlay.hidden = false;
+    $('world').inert = true; document.body.style.overflow = 'hidden';
+    $('seal').disabled = true; setStep(1);
+    setTimeout(() => { if (stage === 'envelope') { $('seal').disabled = false; $('seal').focus(); } }, motion.matches ? 30 : 1500);
+  }, motion.matches ? 80 : 1500);
   if (!music.started && !music.userMuted) music.start();
 }
-$('sleigh').addEventListener('click', receive); $('receive').addEventListener('click', receive);
+$('sleigh').addEventListener('click', receive);
 $('seal').addEventListener('click', () => {
   if (stage !== 'envelope') return;
   stage = 'opening'; $('seal').disabled = true; $('envelope').classList.add('opening');
@@ -29,7 +36,7 @@ function reset() {
   $('envelope-scene').hidden = false; $('card-scene').hidden = true;
   $('envelope').classList.remove('opening'); $('seal').disabled = false;
   $('world').classList.remove('delivered'); document.body.style.overflow = ''; setStep(0);
-  (lastTrigger || $('receive')).focus({preventScroll:true});
+  (lastTrigger || $('sleigh')).focus({preventScroll:true});
 }
 $('close').addEventListener('click',reset); $('replay').addEventListener('click',reset);
 document.addEventListener('keydown',e=>{
